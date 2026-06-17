@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>❤️ A Special Surprise ❤️</h1>
+    <button onclick="goNext()">Start</button>
+</div>
+
+<!-- PAGE 2 LOADER -->
+<div id="page2" class="page">
+    <h1>✨ Her Cuteness ✨</h1>
+
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+
+    <h2 id="percentage">0%</h2>
+
+    <div id="beautyMessage"></div>
+
+    <div class="nav">
+        <button onclick="goPrev()">⬅ Back</button>
+        <button onclick="goNext()">Next ➡</button>
+    </div>
+</div>
+
+<!-- PAGE 3 PUZZLE -->
+<div id="page3" class="page">
+
+    <h1>🧩 Solve this Puzzle you are smart na.. 😏 🧩</h1>
+
+    <div id="puzzle" class="puzzle-container"></div>
+    <p id="puzzleWinMessage" class="win-message"></p>
+
+    <div class="nav">
+        <button onclick="goPrev()">⬅ Back</button>
+        <button onclick="goNext()">Next ➡</button>
+    </div>
+
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+
+    <h1>🥺 I Am Sorry 🥺</h1>
+
+    <div class="message-box">
+        <p>
+            Hey baby,<br> I regret what i did to you without even realising what i was doing to you.<br> 
+                Cahe wo tera emotions ko ignore karna ho ya tera birthday ya haar time tumko tere us emotional burden state ma chor dena.<br>
+                Ha haar baar tum hamko priority di pyaar di care di apna emotions di har kuch di jo tum de sakti the but in return the only thing that i gave you were pain and sufferings.<br>
+                And i am sorry for all that, at present hamlog ka beach ma jo gap hai uska reason v ham he hai, and tumko ham guilt trip ni kar rahe hai bs apna feelings bata rahe hai.<br>
+                Yes tum sahi hai i am not at all good for you, and tere liye sb sa laadai kar lange, ha tera liye tumsa v ladai kar lange,<br> 
+                because the only one i think of is you jaagte, khate, nahate, and so jane ka baad jb acchanak sa nind khulta hai tb v.<br> 
+                I am just really very sorry for the shits you have to go through because of this fucking manchild. 
+        </p>
+    </div>
+
+    <div class="nav">
+        <button onclick="goPrev()">⬅ Back</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
