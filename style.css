@@ -46,6 +46,7 @@ border-radius:50px;
 background:rgba(255,255,255,0.25);
 color:white;
 cursor:pointer;
+margin-top:10px;
 }
 
 /* LOADER */
@@ -63,7 +64,6 @@ height:100%;
 background:white;
 }
 
-/* IMPORTANT SIZE ANIMATION */
 #percentage{
 color:white;
 margin-top:15px;
@@ -89,23 +89,20 @@ gap:5px;
 .piece{
 width:110px;
 height:110px;
-background-image:url("images/1.jpg");
+background-image:url("1.jpg"); /* 🔥 FIXED PATH */
 background-size:330px 330px;
 cursor:pointer;
 border-radius:10px;
+border:1px solid rgba(255,255,255,0.3);
 }
 
-/* MESSAGE */
+/* MESSAGE BOX FIXED */
 .message-box{
 background:rgba(255,255,255,0.2);
 padding:20px;
 border-radius:15px;
 color:white;
 }
-button{
-margin-top:15px;
-}
-/* your existing CSS above */
 
 /* NAV BUTTONS */
 .nav{
@@ -122,20 +119,22 @@ background:rgba(255,255,255,0.25);
 color:white;
 cursor:pointer;
 }
+
+/* WIN MESSAGE */
 .win-message{
-color: white;
-font-size: 18px;
-margin-top: 15px;
-font-weight: bold;
-opacity: 1;
+color:white;
+font-size:18px;
+margin-top:15px;
+font-weight:bold;
+opacity:1;
 }
 
 .win-message::after{
-content: "|";
-margin-left: 5px;
-animation: blink 0.7s infinite;
+content:"|";
+margin-left:5px;
+animation:blink 0.7s infinite;
 }
 
 @keyframes blink{
-50%{ opacity: 0; }
+50%{ opacity:0; }
 }
