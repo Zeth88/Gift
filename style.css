@@ -90,10 +90,13 @@ button:hover{
 
 #beautyMessage{
     color:white;
-    font-size:24px;
+    font-size:26px;
     margin-top:20px;
     opacity:0;
     transition:1s;
+     min-height:80px;
+     text-align:center;
+    
 }
 
 /* ================= PUZZLE ================= */
