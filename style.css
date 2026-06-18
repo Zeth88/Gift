@@ -109,15 +109,12 @@ button:hover{
     width:110px;
     height:110px;
     background-image:url("1.jpg");
-    background-size:330px 330px;
+    background-size:300% 300%;
+    background-repeat:no-repeat;
     cursor:pointer;
     border-radius:10px;
     border:1px solid rgba(255,255,255,0.3);
     transition:0.2s;
-}
-
-.piece:hover{
-    transform:scale(1.03);
 }
 
 .win-message{
