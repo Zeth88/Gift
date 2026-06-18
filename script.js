@@ -1,197 +1,229 @@
+// ================= PAGES =================
+
 let current = 0;
 
 const pages = [
- document.getElementById("page1"),
- document.getElementById("page2"),
- document.getElementById("page3"),
- document.getElementById("page4"),
- document.getElementById("page5"),
- document.getElementById("page6"),
- document.getElementById("page7")
+    document.getElementById("page1"),
+    document.getElementById("page2"),
+    document.getElementById("page3"),
+    document.getElementById("page4"),
+    document.getElementById("page5"),
+    document.getElementById("page6"),
+    document.getElementById("page7")
 ];
 
-/* ================= PAGE SYSTEM ================= */
+function showPage(index){
 
-function showPage(i){
+    if(index < 0 || index >= pages.length) return;
 
-if(i < 0 || i >= pages.length) return;
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
 
-pages.forEach(p => p.classList.remove("active"));
-pages[i].classList.add("active");
+    pages[index].classList.add("active");
+    current = index;
 
-current = i;
-
-/* start loader ONLY when page 2 opens */
-if(i === 1){
-setTimeout(() => {
-startLoader();
-}, 100);
+    // Start loader only once
+    if(index === 1 && !loaderStarted){
+        loaderStarted = true;
+        setTimeout(startLoader, 100);
+    }
 }
-}
 
-/* NAVIGATION */
 function goNext(){
-if(current < pages.length - 1){
-showPage(current + 1);
-}
+    if(current < pages.length - 1){
+        showPage(current + 1);
+    }
 }
 
 function goPrev(){
-if(current > 0){
-showPage(current - 1);
-}
+    if(current > 0){
+        showPage(current - 1);
+    }
 }
 
-/* expose to HTML */
 window.goNext = goNext;
 window.goPrev = goPrev;
 
-/* ================= LOADER ================= */
+// ================= LOADER =================
+
+let loaderStarted = false;
 
 function startLoader(){
 
-const bar = document.getElementById("progressBar");
-const text = document.getElementById("percentage");
-const msg = document.getElementById("beautyMessage");
+    const bar = document.getElementById("progressBar");
+    const percentage = document.getElementById("percentage");
+    const message = document.getElementById("beautyMessage");
 
-if(!bar || !text || !msg){
-console.error("Loader elements missing");
-return;
+    if(!bar || !percentage || !message) return;
+
+    let value = 0;
+
+    const interval = setInterval(() => {
+
+        value++;
+
+        bar.style.width = value + "%";
+        percentage.innerText = value + "%";
+
+        percentage.style.fontSize =
+            (18 + value * 0.3) + "px";
+
+        if(value >= 100){
+
+            clearInterval(interval);
+
+            message.innerHTML =
+                "✨ You are a certified beauty 😍💖✨";
+
+            message.style.opacity = "1";
+
+        }
+
+    }, 30);
 }
 
-/* reset */
-bar.style.width = "0%";
-text.innerText = "0%";
-msg.innerHTML = "";
-msg.style.opacity = "0";
-
-let val = 0;
-
-let interval = setInterval(() => {
-
-val += Math.max(1, Math.floor((100 - val) * 0.08));
-
-bar.style.width = val + "%";
-text.innerText = val + "%";
-
-/* growing text effect */
-text.style.fontSize = (18 + val * 0.4) + "px";
-
-if(val >= 100){
-clearInterval(interval);
-
-msg.innerHTML = "✨ You are a certified beauty 😍💖✨";
-msg.style.opacity = "1";
-}
-
-}, 40);
-}
-
-/* ================= PUZZLE ================= */
+// ================= PUZZLE =================
 
 const puzzle = document.getElementById("puzzle");
 
-let pos = [0,1,2,3,4,5,6,7,8];
-let first = null;
+let positions = [0,1,2,3,4,5,6,7,8];
+let selected = null;
 
-/* shuffle */
-function shuffle(a){
-for(let i=a.length-1;i>0;i--){
-let j=Math.floor(Math.random()*(i+1));
-[a[i],a[j]]=[a[j],a[i]];
-}
-return a;
+function shuffle(array){
+
+    for(let i = array.length - 1; i > 0; i--){
+
+        const j = Math.floor(
+            Math.random() * (i + 1)
+        );
+
+        [array[i], array[j]] =
+        [array[j], array[i]];
+    }
+
+    return array;
 }
 
-/* init puzzle */
 function initPuzzle(){
 
-do{
-shuffle(pos);
-}while(pos.every((v,i)=>v===i));
+    do{
+        shuffle(positions);
+    }
+    while(
+        positions.every(
+            (value,index) => value === index
+        )
+    );
 
-render();
+    renderPuzzle();
 }
 
-/* render puzzle */
-function render(){
+function renderPuzzle(){
 
-puzzle.innerHTML = "";
+    if(!puzzle) return;
 
-pos.forEach((v,i)=>{
+    puzzle.innerHTML = "";
 
-const d = document.createElement("div");
-d.classList.add("piece");
+    positions.forEach((value,index)=>{
 
-const row = Math.floor(v / 3);
-const col = v % 3;
+        const piece =
+            document.createElement("div");
 
-d.style.backgroundPosition = `${-col*110}px ${-row*110}px`;
+        piece.classList.add("piece");
 
-/* highlight selected */
-if(i === first){
-d.style.outline = "3px solid white";
-d.style.transform = "scale(1.05)";
+        const row =
+            Math.floor(value / 3);
+
+        const col =
+            value % 3;
+
+        piece.style.backgroundPosition =
+            `${-col * 110}px ${-row * 110}px`;
+
+        if(index === selected){
+            piece.style.outline =
+                "3px solid white";
+        }
+
+        piece.onclick = () => selectPiece(index);
+
+        puzzle.appendChild(piece);
+    });
 }
 
-d.onclick = () => select(i);
+function selectPiece(index){
 
-puzzle.appendChild(d);
+    if(selected === null){
 
-});
+        selected = index;
+        renderPuzzle();
+        return;
+    }
 
+    [positions[selected], positions[index]] =
+    [positions[index], positions[selected]];
+
+    selected = null;
+
+    renderPuzzle();
+
+    checkPuzzle();
 }
 
-/* select logic */
-function select(i){
+function checkPuzzle(){
 
-if(first === null){
-first = i;
-render();
-return;
+    const solved =
+        positions.every(
+            (value,index)=>value === index
+        );
+
+    if(solved){
+
+        const win =
+            document.getElementById(
+                "puzzleWinMessage"
+            );
+
+        if(win){
+
+            typeWriter(
+                win,
+                "✨ Perfect! You solved it ❤️",
+                50
+            );
+        }
+    }
 }
 
-[pos[first], pos[i]] = [pos[i], pos[first]];
-first = null;
+// ================= TYPEWRITER =================
 
-render();
-check();
+function typeWriter(element,text,speed=50){
+
+    element.innerHTML = "";
+
+    let i = 0;
+
+    function typing(){
+
+        if(i < text.length){
+
+            element.innerHTML +=
+                text.charAt(i);
+
+            i++;
+
+            setTimeout(
+                typing,
+                speed
+            );
+        }
+    }
+
+    typing();
 }
 
-/* check solved */
-function check(){
-
-if(pos.every((v,i)=>v===i)){
-
-const msg = document.getElementById("puzzleWinMessage");
-
-if(msg){
-typeWriter(msg, "✨ Perfect! You solved it ❤️", 60);
-}
-
-}
-
-}
-
-function typeWriter(element, text, speed = 60){
-
-element.innerHTML = "";
-let i = 0;
-
-function typing(){
-
-if(i < text.length){
-element.innerHTML += text.charAt(i);
-i++;
-setTimeout(typing, speed);
-}
-
-}
-
-typing();
-}
-
-/* ================= INIT ================= */
+// ================= INIT =================
 
 showPage(0);
 initPuzzle();
