@@ -55,9 +55,10 @@ function startLoader(){
 
     if(!bar || !percentage || !message) return;
 
-    // RESET
+    // RESET EVERYTHING
     bar.style.width = "0%";
-    percentage.innerText = "0%";
+
+    percentage.innerHTML = "0%";
     percentage.style.fontSize = "18px";
 
     message.innerHTML = "";
@@ -70,7 +71,8 @@ function startLoader(){
         value++;
 
         bar.style.width = value + "%";
-        percentage.innerText = value + "%";
+
+        percentage.innerHTML = value + "%";
 
         percentage.style.fontSize =
             (18 + value * 0.3) + "px";
@@ -79,15 +81,18 @@ function startLoader(){
 
             clearInterval(interval);
 
-            message.innerHTML =
-                "✨ You are a certified beauty 😍💖✨";
+            setTimeout(() => {
 
-            message.style.opacity = "1";
+                message.innerHTML =
+                    "✨ You are a certified beauty 😍💖✨";
+
+                message.style.opacity = "1";
+
+            }, 300);
         }
 
     }, 30);
 }
-
 // ================= PUZZLE =================
 
 const puzzle = document.getElementById("puzzle");
