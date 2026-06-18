@@ -14,7 +14,6 @@ document.getElementById("page7")
 
 function showPage(index){
 
-```
 if(index < 0 || index >= pages.length) return;
 
 pages.forEach(page => {
@@ -29,7 +28,6 @@ current = index;
 if(index === 1){
     setTimeout(startLoader,100);
 }
-```
 
 }
 
@@ -54,7 +52,6 @@ let loaderInterval = null;
 
 function startLoader(){
 
-```
 const bar = document.getElementById("progressBar");
 const percentage = document.getElementById("percentage");
 const message = document.getElementById("beautyMessage");
@@ -98,7 +95,6 @@ loaderInterval = setInterval(() => {
     }
 
 },30);
-```
 
 }
 
@@ -112,7 +108,6 @@ let selected = null;
 
 function shuffle(array){
 
-```
 for(let i=array.length-1;i>0;i--){
 
     const j =
@@ -123,13 +118,11 @@ for(let i=array.length-1;i>0;i--){
 }
 
 return array;
-```
 
 }
 
 function initPuzzle(){
 
-```
 do{
     shuffle(positions);
 }
@@ -141,13 +134,11 @@ while(
 );
 
 renderPuzzle();
-```
 
 }
 
 function renderPuzzle(){
 
-```
 if(!puzzle) return;
 
 puzzle.innerHTML = "";
@@ -178,13 +169,11 @@ positions.forEach((value,index)=>{
 
     puzzle.appendChild(piece);
 });
-```
 
 }
 
 function selectPiece(index){
 
-```
 if(selected === null){
 
     selected = index;
@@ -202,13 +191,11 @@ selected = null;
 renderPuzzle();
 
 checkPuzzle();
-```
 
 }
 
 function checkPuzzle(){
 
-```
 const solved =
 positions.every(
     (value,index)=>
@@ -231,7 +218,6 @@ if(solved){
         );
     }
 }
-```
 
 }
 
@@ -243,7 +229,6 @@ text,
 speed = 50
 ){
 
-```
 element.innerHTML = "";
 
 let i = 0;
@@ -265,7 +250,6 @@ function typing(){
 }
 
 typing();
-```
 
 }
 
