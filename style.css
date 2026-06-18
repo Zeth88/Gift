@@ -1,182 +1,142 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
+/* ================= MESSAGE BOX ================= */
 
-body{
-min-height:100vh;
-background:linear-gradient(135deg,#ff6a88,#ff99ac);
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-/* PAGE */
-.page{
-display:none;
-width:100%;
-max-width:420px;
-min-height:90vh;
-padding:25px;
-border-radius:25px;
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(12px);
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-
-.active{
-display:flex;
-}
-
-/* TEXT */
-h1,h2{
-color:white;
-}
-
-/* BUTTON */
-button{
-padding:12px 20px;
-border:none;
-border-radius:50px;
-background:rgba(255,255,255,0.25);
-color:white;
-cursor:pointer;
-margin-top:10px;
-}
-
-/* LOADER */
-.progress-container{
-width:100%;
-height:12px;
-background:rgba(255,255,255,0.2);
-border-radius:20px;
-overflow:hidden;
-}
-
-#progressBar{
-width:0%;
-height:100%;
-background:white;
-}
-
-#percentage{
-color:white;
-margin-top:15px;
-font-size:18px;
-transition:0.2s;
-}
-
-#beautyMessage{
-color:white;
-font-size:26px;
-margin-top:20px;
-opacity:0;
-transition:1s;
-}
-
-/* PUZZLE */
-.puzzle-container{
-display:grid;
-grid-template-columns:repeat(3,110px);
-gap:5px;
-}
-
-.piece{
-width:110px;
-height:110px;
-background-image:url("1.jpg"); /* 🔥 FIXED PATH */
-background-size:330px 330px;
-cursor:pointer;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.3);
-}
-
-/* MESSAGE BOX FIXED */
 .message-box{
-background:rgba(255,255,255,0.2);
-padding:20px;
-border-radius:15px;
-color:white;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:20px;
+    color:white;
+    line-height:1.8;
+    margin-top:20px;
+    max-height:60vh;
+    overflow-y:auto;
+    width:100%;
 }
 
-/* NAV BUTTONS */
-.nav{
-margin-top:20px;
-display:flex;
-gap:10px;
-}
-
-.nav button{
-padding:10px 18px;
-border:none;
-border-radius:20px;
-background:rgba(255,255,255,0.25);
-color:white;
-cursor:pointer;
-}
-
-/* WIN MESSAGE */
-.win-message{
-color:white;
-font-size:18px;
-margin-top:15px;
-font-weight:bold;
-opacity:1;
-}
-
-.win-message::after{
-content:"|";
-margin-left:5px;
-animation:blink 0.7s infinite;
-}
-
-@keyframes blink{
-50%{ opacity:0; }
-}
-
-.ducky{
-    font-size:120px;
-    animation:floatDuck 3s ease-in-out infinite;
-}
+/* ================= DUCKY PAGE ================= */
 
 .ducky-container{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:15px;
+    justify-content:center;
+    gap:20px;
 }
+
+.ducky{
+    font-size:120px;
+    animation:floatDuck 3s ease-in-out infinite;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.speech-bubble{
+    background:white;
+    color:#ff6a88;
+    padding:20px;
+    border-radius:20px;
+    max-width:320px;
+    font-weight:bold;
+    line-height:1.6;
+    position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.speech-bubble::after{
+    content:"";
+    position:absolute;
+    bottom:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    border-width:14px;
+    border-style:solid;
+    border-color:white transparent transparent transparent;
+}
+
+/* ================= REASONS PAGE ================= */
+
+.reasons-list{
+    color:white;
+    font-size:20px;
+    line-height:2;
+    text-align:left;
+}
+
+/* ================= FINAL PAGE ================= */
+
+.final-heart{
+    font-size:80px;
+    margin:20px 0;
+    animation:pulse 1.5s infinite;
+}
+
+/* ================= ANIMATIONS ================= */
 
 @keyframes floatDuck{
     0%,100%{
-        transform:translateY(0);
+        transform:translateY(0px);
     }
     50%{
         transform:translateY(-15px);
     }
 }
 
-.speech-bubble{
-    background:white;
-    color:#ff6a88;
-    padding:18px;
-    border-radius:20px;
-    max-width:300px;
-    font-weight:bold;
-    position:relative;
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
 }
 
-.speech-bubble::after{
-    content:"";
-    position:absolute;
-    bottom:-10px;
-    left:50%;
-    transform:translateX(-50%);
-    border-width:10px;
-    border-style:solid;
-    border-color:white transparent transparent transparent;
+/* ================= SCROLLBAR ================= */
+
+.message-box::-webkit-scrollbar{
+    width:6px;
+}
+
+.message-box::-webkit-scrollbar-thumb{
+    background:rgba(255,255,255,0.4);
+    border-radius:10px;
+}
+
+/* ================= PAGE HEADINGS ================= */
+
+.page h1{
+    color:white;
+    margin-bottom:15px;
+    text-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:480px){
+
+    .page{
+        max-width:95%;
+        padding:20px;
+    }
+
+    .ducky{
+        font-size:100px;
+    }
+
+    .speech-bubble{
+        max-width:280px;
+        font-size:15px;
+    }
+
+    .message-box{
+        font-size:14px;
+    }
+
+    .puzzle-container{
+        grid-template-columns:repeat(3,90px);
+    }
+
+    .piece{
+        width:90px;
+        height:90px;
+        background-size:270px 270px;
+    }
 }
