@@ -1,10 +1,13 @@
 let current = 0;
 
 const pages = [
-document.getElementById("page1"),
-document.getElementById("page2"),
-document.getElementById("page3"),
-document.getElementById("page4")
+ document.getElementById("page1"),
+ document.getElementById("page2"),
+ document.getElementById("page3"),
+ document.getElementById("page4"),
+ document.getElementById("page5"),
+ document.getElementById("page6"),
+ document.getElementById("page7")
 ];
 
 /* ================= PAGE SYSTEM ================= */
