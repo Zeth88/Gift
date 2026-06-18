@@ -138,3 +138,24 @@ animation:blink 0.7s infinite;
 @keyframes blink{
 50%{ opacity:0; }
 }
+
+.ducky{
+    font-size:120px;
+    animation:floatDuck 3s ease-in-out infinite;
+}
+
+.ducky-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+}
+
+@keyframes floatDuck{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
