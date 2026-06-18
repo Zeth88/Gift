@@ -166,7 +166,6 @@ positions.forEach((value,index)=>{
 
     piece.onclick =
     () => selectPiece(index);
-
     puzzle.appendChild(piece);
 });
 
