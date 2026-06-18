@@ -47,8 +47,6 @@ window.goPrev = goPrev;
 
 // ================= LOADER =================
 
-let loaderStarted = false;
-
 function startLoader(){
 
     const bar = document.getElementById("progressBar");
@@ -56,6 +54,14 @@ function startLoader(){
     const message = document.getElementById("beautyMessage");
 
     if(!bar || !percentage || !message) return;
+
+    // RESET
+    bar.style.width = "0%";
+    percentage.innerText = "0%";
+    percentage.style.fontSize = "18px";
+
+    message.innerHTML = "";
+    message.style.opacity = "0";
 
     let value = 0;
 
@@ -77,7 +83,6 @@ function startLoader(){
                 "✨ You are a certified beauty 😍💖✨";
 
             message.style.opacity = "1";
-
         }
 
     }, 30);
@@ -138,8 +143,9 @@ function renderPuzzle(){
         const col =
             value % 3;
 
+        piece.style.backgroundSize = "300% 300%";
         piece.style.backgroundPosition =
-            `${-col * 110}px ${-row * 110}px`;
+            `${col * 50}% ${row * 50}%`;
 
         if(index === selected){
             piece.style.outline =
