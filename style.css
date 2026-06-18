@@ -159,3 +159,24 @@ animation:blink 0.7s infinite;
         transform:translateY(-15px);
     }
 }
+
+.speech-bubble{
+    background:white;
+    color:#ff6a88;
+    padding:18px;
+    border-radius:20px;
+    max-width:300px;
+    font-weight:bold;
+    position:relative;
+}
+
+.speech-bubble::after{
+    content:"";
+    position:absolute;
+    bottom:-10px;
+    left:50%;
+    transform:translateX(-50%);
+    border-width:10px;
+    border-style:solid;
+    border-color:white transparent transparent transparent;
+}
