@@ -70,11 +70,18 @@ button:hover{
 
 .progress-container{
     width:100%;
-    height:12px;
+    height:14px;
     background:rgba(255,255,255,0.25);
     border-radius:20px;
     overflow:hidden;
     margin-top:20px;
+}
+
+#progressBar{
+    width:0%;
+    height:100%;
+    background:white;
+    transition:width 0.1s linear;
 }
 
 #percentage{
@@ -90,6 +97,8 @@ button:hover{
     margin-top:20px;
     min-height:80px;
     text-align:center;
+    opacity:0;
+    transition:0.5s;
 }
 
 /* ================= PUZZLE ================= */
@@ -105,7 +114,7 @@ button:hover{
     width:110px;
     height:110px;
     background-image:url("1.jpg");
-    background-size:300% 300%;
+    background-size:330px 330px;
     background-repeat:no-repeat;
     cursor:pointer;
     border-radius:10px;
@@ -113,12 +122,17 @@ button:hover{
     transition:0.2s;
 }
 
+.piece:hover{
+    transform:scale(1.03);
+}
+
 .win-message{
     color:white;
-    font-size:20px;
+    font-size:22px;
     font-weight:bold;
-    margin-top:15px;
-    min-height:30px;
+    margin-top:20px;
+    min-height:40px;
+    text-align:center;
 }
 
 /* ================= MESSAGE BOX ================= */
@@ -159,6 +173,7 @@ button:hover{
     font-weight:bold;
     line-height:1.6;
     position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .speech-bubble::after{
@@ -178,6 +193,7 @@ button:hover{
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
@@ -212,6 +228,10 @@ button:hover{
         font-size:14px;
     }
 
+    .message-box{
+        font-size:14px;
+    }
+
     .puzzle-container{
         grid-template-columns:repeat(3,90px);
     }
@@ -220,9 +240,5 @@ button:hover{
         width:90px;
         height:90px;
         background-size:270px 270px;
-    }
-
-    .message-box{
-        font-size:14px;
     }
 }
