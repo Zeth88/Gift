@@ -71,32 +71,25 @@ button:hover{
 .progress-container{
     width:100%;
     height:12px;
-    background:rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.25);
     border-radius:20px;
     overflow:hidden;
-}
-
-#progressBar{
-    width:0%;
-    height:100%;
-    background:white;
+    margin-top:20px;
 }
 
 #percentage{
     color:white;
-    margin-top:15px;
+    margin-top:20px;
     font-size:18px;
+    text-align:center;
 }
 
 #beautyMessage{
     color:white;
     font-size:26px;
     margin-top:20px;
-    opacity:0;
-    transition:1s;
-     min-height:80px;
-     text-align:center;
-    
+    min-height:80px;
+    text-align:center;
 }
 
 /* ================= PUZZLE ================= */
