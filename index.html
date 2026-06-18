@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Special App</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<!-- PAGE 1 -->
-<div id="page1" class="page active">
-    <h1>❤️ A Special Surprise ❤️</h1>
-    <button onclick="goNext()">Start</button>
-</div>
-
-<!-- PAGE 2 LOADER -->
-<div id="page2" class="page">
-    <h1>✨ Her Cuteness ✨</h1>
+<!-- PAGE 2 : LOADER -->
+<div class="page" id="page2">
 
     <div class="progress-container">
         <div id="progressBar"></div>
@@ -32,14 +13,17 @@
         <button onclick="goPrev()">⬅ Back</button>
         <button onclick="goNext()">Next ➡</button>
     </div>
+
 </div>
 
-<!-- PAGE 3 PUZZLE -->
-<div id="page3" class="page">
+
+<!-- PAGE 3 : PUZZLE -->
+<div class="page" id="page3">
 
     <h1>🧩 Solve this Puzzle you are smart na.. 😏 🧩</h1>
 
     <div id="puzzle" class="puzzle-container"></div>
+
     <p id="puzzleWinMessage" class="win-message"></p>
 
     <div class="nav">
@@ -49,42 +33,57 @@
 
 </div>
 
-<!-- PAGE 4 -->
-<div id="page4" class="page">
+
+<!-- PAGE 4 : SORRY -->
+<div class="page" id="page4">
 
     <h1>🥺 I Am Sorry 🥺</h1>
 
     <div class="message-box">
         <p>
-            Hey baby,<br> I regret what i did to you without even realising what i was doing to you.<br> 
-                Cahe wo tera emotions ko ignore karna ho ya tera birthday ya haar time tumko tere us emotional burden state ma chor dena.<br>
-                Ha haar baar tum hamko priority di pyaar di care di apna emotions di har kuch di jo tum de sakti the but in return the only thing that i gave you were pain and sufferings.<br>
-                And i am sorry for all that, at present hamlog ka beach ma jo gap hai uska reason v ham he hai, and tumko ham guilt trip ni kar rahe hai bs apna feelings bata rahe hai.<br>
-                Yes tum sahi hai i am not at all good for you, and tere liye sb sa laadai kar lange, ha tera liye tumsa v ladai kar lange,<br> 
-                because the only one i think of is you jaagte, khate, nahate, and so jane ka baad jb acchanak sa nind khulta hai tb v.<br> 
-                I am just really very sorry for the shits you have to go through because of this fucking manchild. 
+            Hey baby,<br><br>
+
+            I regret what I did to you without even realising what I was doing to you.<br><br>
+
+            Chahe wo tere emotions ko ignore karna ho ya tera birthday ya har time tumko tere emotional burden state mein chhod dena.<br><br>
+
+            Har baar tumne mujhe priority di, pyaar diya, care di, apne emotions diye aur jo kuch tum de sakti thi diya.<br><br>
+
+            Aur badle mein maine tumhe sirf pain aur sufferings di.<br><br>
+
+            Main us sab ke liye genuinely sorry hoon.<br><br>
+
+            Hamare beech jo gap hai uska reason bhi main hi hoon.<br><br>
+
+            Main tumhe guilt trip nahi kar raha, bas apne dil ki baat bata raha hoon.<br><br>
+
+            Tum sahi ho. Shayad main utna accha nahi tha jitna hona chahiye tha.<br><br>
+
+            But the truth is, you're always on my mind.<br><br>
+
+            I am really very sorry for everything you had to go through because of me.
         </p>
     </div>
 
     <div class="nav">
         <button onclick="goPrev()">⬅ Back</button>
+        <button onclick="goNext()">Next ➡</button>
     </div>
 
 </div>
 
-<!-- PAGE 5 -->
+
+<!-- PAGE 5 : DUCKY -->
 <div class="page" id="page5">
 
     <div class="ducky-container">
 
         <div class="ducky">🐥</div>
 
-        <h1>Ducky Says...</h1>
+        <h1>🐥 Ducky Says...</h1>
 
-        <div class="message-box">
-            <p>
-                YOUR MESSAGE HERE
-            </p>
+        <div class="speech-bubble">
+            YOUR MESSAGE HERE ❤️
         </div>
 
     </div>
@@ -95,7 +94,52 @@
     </div>
 
 </div>
-    
-<script src="script.js"></script>
-</body>
-</html>
+
+
+<!-- PAGE 6 : REASONS -->
+<div class="page" id="page6">
+
+    <h1>🌸 Things I Like About You 🌸</h1>
+
+    <div class="message-box">
+        <p>
+            ❤️ Your smile<br><br>
+
+            ❤️ The way you care for others<br><br>
+
+            ❤️ The way you understand emotions<br><br>
+
+            ❤️ Your kindness<br><br>
+
+            ❤️ Simply being you
+        </p>
+    </div>
+
+    <div class="nav">
+        <button onclick="goPrev()">⬅ Back</button>
+        <button onclick="goNext()">Next ➡</button>
+    </div>
+
+</div>
+
+
+<!-- PAGE 7 : FINAL -->
+<div class="page" id="page7">
+
+    <h1>💖 One Last Thing 💖</h1>
+
+    <div class="message-box">
+        <p>
+            No matter what happens, I just wanted you to know that you are special to me.<br><br>
+
+            Thank you for every smile, every memory and every moment.<br><br>
+
+            ❤️
+        </p>
+    </div>
+
+    <div class="nav">
+        <button onclick="goPrev()">⬅ Back</button>
+    </div>
+
+</div>
