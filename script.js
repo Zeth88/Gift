@@ -47,6 +47,8 @@ window.goPrev = goPrev;
 
 // ================= LOADER =================
 
+let loaderInterval = null;
+
 function startLoader(){
 
     const bar = document.getElementById("progressBar");
@@ -55,9 +57,13 @@ function startLoader(){
 
     if(!bar || !percentage || !message) return;
 
-    // RESET EVERYTHING
-    bar.style.width = "0%";
+    // STOP any previous loader
+    if(loaderInterval){
+        clearInterval(loaderInterval);
+    }
 
+    // RESET
+    bar.style.width = "0%";
     percentage.innerHTML = "0%";
     percentage.style.fontSize = "18px";
 
@@ -66,12 +72,11 @@ function startLoader(){
 
     let value = 0;
 
-    const interval = setInterval(() => {
+    loaderInterval = setInterval(() => {
 
         value++;
 
         bar.style.width = value + "%";
-
         percentage.innerHTML = value + "%";
 
         percentage.style.fontSize =
@@ -79,16 +84,12 @@ function startLoader(){
 
         if(value >= 100){
 
-            clearInterval(interval);
+            clearInterval(loaderInterval);
 
-            setTimeout(() => {
+            message.innerHTML =
+            "✨ You are a certified beauty 😍💖✨";
 
-                message.innerHTML =
-                    "✨ You are a certified beauty 😍💖✨";
-
-                message.style.opacity = "1";
-
-            }, 300);
+            message.style.opacity = "1";
         }
 
     }, 30);
