@@ -115,9 +115,10 @@ button:hover{
 
 .win-message{
     color:white;
-    font-size:18px;
-    margin-top:15px;
+    font-size:20px;
     font-weight:bold;
+    margin-top:15px;
+    min-height:30px;
 }
 
 /* ================= MESSAGE BOX ================= */
